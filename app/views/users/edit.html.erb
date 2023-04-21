@@ -1,2 +1,16 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<div class="container">
+	<div class="row">
+		<div class="mx-auto col-6">
+			<h1>User info</h1>
+			<%= form_with model: @user do |f| %>
+				<h5>Name</h5>
+				<%= f.text_field :name, class: 'form-control mb-3' %>
+				<h5>Image</h5>
+				<%= f.file_field :profile_image, accept: "image/*", class: "mb-3" %>
+				<h5>introduction</h5>
+				<%= f.text_area :introduction, class: 'form-control mb-3' %>
+				<%= f.submit 'Update User', class: 'btn btn-secondary mb-3'%>
+			<% end %>
+		</div>
+	</div>
+</div>
