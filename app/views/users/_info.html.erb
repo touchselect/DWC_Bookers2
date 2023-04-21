@@ -17,12 +17,13 @@
 				</button>
 			<% end %>
 
-			<h2>New book</h2>
+			<div class="mx-auto"><h2>New book</h2>
 			<%= form_with model: Book.new do |f| %>
 				<h5>Title</h5>
-				<div class="mb-3"><%= f.text_field :title %></div>
+				<%= f.text_field :title, class: 'form-control mb-3' %>
 				<h5>Opinion</h5>
-				<div class="mb-3"><%= f.text_area :body %></div>
+				<%= f.text_area :body, class: 'form-control mb-3' %>
 				<%= f.submit 'Create Book', class: 'btn btn-success' %>
 			<% end %>
+			</div>
 		</div>
