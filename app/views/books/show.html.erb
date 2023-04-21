@@ -19,6 +19,7 @@
 					<td>
 						<%= @book.body %>
 					</td>
+					<% if @book.user == current_user %>
 					<td>
 						<%= link_to(edit_book_path(@book.id)) do %>
 							<button class="btn btn-success">Edit</button>
@@ -29,6 +30,7 @@
 							<button class="btn btn-danger">Destroy</button>
 						<% end %>
 					</td>
+					<% end %>
 				</tr>
 			</table>
 		</div>
