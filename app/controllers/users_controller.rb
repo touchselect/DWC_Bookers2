@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   def edit
     @user = User.find(params[:id])
     if @user.id != current_user.id
-      redirect_to user_path(@user.id)
+      redirect_to user_path(current_user.id)
     end
   end
 
@@ -22,7 +22,8 @@ class UsersController < ApplicationController
       flash[:notice] = "Profile was successfully updated."
       redirect_to user_path(@user.id)
     else
-      flash[:notice] = "error!"
+      flash[:error] = "error!"
+      flash[:notice] = @user.errors.full_messages
       render :edit
     end
   end

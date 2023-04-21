@@ -1,11 +1,11 @@
 <div class="container">
 	<div class="row">
 		<%= render 'users/info', user: @user %>
-		<div class="col-8">
+		<div class="col-md-8 offset-md-1">
 			<h2>Book detail</h2>
 			<table class="table">
 				<tr>
-					<td class="col-2">
+					<td class="col-md-2">
 						<%= link_to(user_path(@book.user_id)) do %>
 							<%= image_tag @book.get_image %>
 							<%= @book.user.name %>
