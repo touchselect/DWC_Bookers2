@@ -1,0 +1,24 @@
+<% if book.favorited_by?(current_user) %>
+	<td>
+		<%= link_to book_favorites_path(book), method: :delete do %>
+			<% if book.favorites.count == 0 %>
+				<p>♥<%= book.favorites.count %></p>
+			<% else %>
+				<p class="text-danger">♥<%= book.favorites.count %></p>
+			<% end %>
+		<% end %>
+	</td>
+<% else %>
+	<td>
+		<%= link_to book_favorites_path(book), method: :post do %>
+			<% if book.favorites.count == 0 %>
+				<p>♥<%= book.favorites.count %></p>
+			<% else %>
+				<p class="text-danger">♥<%= book.favorites.count %></p>
+			<% end %>
+		<% end %>
+	</td>
+<% end %>
+<td>
+	<p>コメント件数:<%= book.book_comments.count %></p>
+</td>
