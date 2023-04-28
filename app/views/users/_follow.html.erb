@@ -1,0 +1,23 @@
+<td>
+	<p>フォロー数:<%= user.following.count %></p>
+</td>
+<td>
+	<p>フォロワー数:<%= user.followers.count %></p>
+</td>
+<% if current_user.id != user.id %>
+	<% if current_user.following.include?(user) %>
+		<td>
+			<%= link_to user_relationships_path(user), method: :delete do %>
+				<p>フォローを外す</p>
+			<% end %>
+		</td>
+	<% else %>
+		<td>
+			<%= link_to user_relationships_path(user), method: :post do %>
+				<p>フォローする</p>
+			<% end %>
+		</td>
+	<% end %>
+<% else %>
+	<td></td>
+<% end %>

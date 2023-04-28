@@ -10,6 +10,22 @@
 					<th>introduction</th>
 					<th><%= user.introduction %></th>
 				</tr>
+				<tr>
+					<th>follows</th>
+					<th>
+						<%= link_to following_user_path(user.id) do %>
+							<%= user.following.count %>
+						<% end %>
+					</th>
+				</tr>
+				<tr>
+					<th>followers</th>
+					<th>
+						<%= link_to followers_user_path(user.id) do %>
+							<%= user.followers.count %>
+						<% end %>
+					</th>
+				</tr>
 			</table>
 			<%= link_to(edit_user_path(user.id)) do %>
 				<button class="btn btn-outline-secondary btn-block btn-sm mb-3">

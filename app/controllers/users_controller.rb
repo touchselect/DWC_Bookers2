@@ -4,6 +4,20 @@ class UsersController < ApplicationController
     @user = User.find(current_user.id)
   end
 
+  def following
+    @title = "Following"
+    @user = User.find(params[:id])
+    @users = @user.following
+    render 'show_follow'
+  end
+
+  def followers
+    @title = "Follower"
+    @user = User.find(params[:id])
+    @users = @user.followers
+    render 'show_follow'
+  end
+
   def show
     @user = User.find(params[:id])
     @books = @user.books
