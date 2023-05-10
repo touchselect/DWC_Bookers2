@@ -4,7 +4,7 @@
 		<div class="col-md-8 offset-md-1">
 			<h2>Book detail</h2>
 			<table class="table">
-				<tr>
+				<tr id="book_<%= @book.id %>">
 					<td class="col-md-2">
 						<%= link_to(user_path(@book.user_id)) do %>
 							<%= image_tag @book.get_image %>
@@ -55,7 +55,7 @@
 				<% end %>
 				</tr>
 			</table>
-			<%= form_with model: [@book, @book_comment] do |f| %>
+			<%= form_with model: [@book, @book_comment], local: false do |f| %>
 				<%= f.text_area :comment, class: 'form-control' %>
 				<%= f.submit '送信' %>
 			<% end %>
